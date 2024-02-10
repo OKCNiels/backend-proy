@@ -27,6 +27,8 @@ Route::name('auth.')->prefix('auth')->group(function () {
 
 
 Route::middleware(['jwt.verify'])->group(function () {
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('obtener-session', [AuthController::class, 'obtenerSession'])->name('obtener-session');
     Route::name('usuario.')->prefix('usuario')->group(function () {
         Route::post('register', [UsuarioController::class, 'register'])->name('register');
         Route::get('buscar/{id}', [UsuarioController::class, 'buscar'])->name('buscar');

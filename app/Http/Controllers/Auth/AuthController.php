@@ -31,4 +31,14 @@ class AuthController extends Controller
             "usuario"=>$usuario
         ],200);
     }
+    public function logout() {
+
+        auth()->logout();
+        return response()->json(['message' => 'Session finalizada']);
+    }
+    public function obtenerSession() {
+
+        return response()->json(auth()->user(),200);
+    }
+
 }
