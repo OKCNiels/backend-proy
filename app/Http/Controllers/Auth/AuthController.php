@@ -14,22 +14,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 {
     //
-    public function register(RegisterRequest $request) {
-        
-        $usuario = new User();
-        $usuario->nombres = $request->nombres;
-        $usuario->apellidos = $request->apellidos;
-        $usuario->email = $request->email;
-        $usuario->password = Hash::make($request->password);
-        $usuario->save();
-
-        $token = JWTAuth::fromUser($usuario);
-        return response()->json([
-            "usuario"=>$usuario,
-            "token"=>$token
-        ],200);
-        
-    }
+    
     public function login(LoginRequest $request) {
         $credentials = $request->only('email', 'password');
 
