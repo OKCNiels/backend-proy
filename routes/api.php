@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::name('auth.')->prefix('auth')->group(function () {
-    // Route::post('register', [UsuarioController::class, 'register'])->name('register');
+    Route::post('register', [UsuarioController::class, 'register'])->name('register');
     Route::post('login', [AuthController::class, 'login'])->name('login');
 });
 
